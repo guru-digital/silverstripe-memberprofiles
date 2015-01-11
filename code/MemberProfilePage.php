@@ -216,7 +216,7 @@ class MemberProfilePage extends Page implements PermissionProvider {
 			));
 			$content->setRows(15);
 		}
-		
+
 
 		$fields->addFieldsToTab('Root.Email', array(
 			new OptionsetField(
@@ -490,7 +490,7 @@ class MemberProfilePage_Controller extends Page_Controller {
 		);
 
 		if(class_exists('SpamProtectorManager')) {
-			SpamProtectorManager::update_form($form);
+			$form->enableSpamProtection();
 		}
 		$this->extend('updateRegisterForm', $form);
 		return $form;
